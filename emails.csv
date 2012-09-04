@@ -1,0 +1,4 @@
+# firstname,lastname,email
+John,Doe,john.doe@example.org
+,,noname@example.org
+No,Name,noname@example.org
