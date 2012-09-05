@@ -208,8 +208,12 @@ if __name__ == "__main__":
             USED_EMAIL_ADDRESSES.add(email)
         
         # Build proper FIRST_LASTNAME template variable contents.
-        if recipient[0] and recipient[1]:
-            first_lastname = u"{0} {1}".format(recipient[0], recipient[1])
+        if recipient[0]:
+            if recipient[1]:
+                first_lastname = u"{0} {1}".format(recipient[0], recipient[1])
+            
+            else:
+                first_lastname = recipient[0]
         
         else:
             first_lastname = CONFIG["FIRST_LASTNAME"]
