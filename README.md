@@ -25,7 +25,7 @@ There also are some optional settings:
     BCC=someone-to-get-bcc-copies@example.org
     FIRST_LASTNAME=Sir or Madam
 
-The template.html file may contain HTML markup and should be saved in UTF-8
+The `template.html` file may contain HTML markup and should be saved in UTF-8
 encoding;  there is one "special" placeholder `{{FIRST_LASTNAME}}` which can be
 used to insert the personalised recipient name into the email.  If the name
 cannot be resolved from the email address, the script will use `FIRST_LASTNAME`
@@ -44,4 +44,6 @@ It is a wise idea to test any new `template.html` or `config.ini` with your own
 email address first.  The author does not any responsibility for emails sent
 out with this tool.  By using the script, you accept this.
 
-Code is available under BSD-style terms.  See `LICENSE` for more information.
+Code is available under BSD-style terms.  See [LICENSE][1] for more information.
+
+[1]: https://raw.github.com/cfedermann/mass-mailer/master/LICENSE
