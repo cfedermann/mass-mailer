@@ -248,7 +248,7 @@ if __name__ == "__main__":
 
         except Exception, error_msg:
             ERRORS += 1
-            print "Fail. Error when sending email to {0}".format(email)
+            print u"Fail. Error when sending email to {0}".format(email)
             print "      {0}".format(error_msg)
     
     print "Done. {0} errors, {1} skipped emails when trying to send {2} " \
