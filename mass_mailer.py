@@ -161,7 +161,7 @@ def load_emails(filename):
             
             # Split line into data items and make sure that email contains @.
             data = line.split(",")
-            assert(len(data) == 3 and "@" in data[2])
+            assert len(data) == 3 and "@" in data[2], line
             
             # If firstname and lastname are not available, store None instead.
             _emails.append(
