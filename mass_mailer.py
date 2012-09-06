@@ -161,7 +161,7 @@ def load_emails(filename):
             
             # Split line into data items and make sure that email contains @.
             data = line.split(",")
-            assert(len(data) == 3 and "@" in data[2])
+            assert len(data) == 3 and "@" in data[2], line
             
             # If firstname and lastname are not available, store None instead.
             _emails.append(
@@ -208,8 +208,12 @@ if __name__ == "__main__":
             USED_EMAIL_ADDRESSES.add(email)
         
         # Build proper FIRST_LASTNAME template variable contents.
-        if recipient[0] and recipient[1]:
-            first_lastname = u"{0} {1}".format(recipient[0], recipient[1])
+        if recipient[0]:
+            if recipient[1]:
+                first_lastname = u"{0} {1}".format(recipient[0], recipient[1])
+            
+            else:
+                first_lastname = recipient[0]
         
         else:
             first_lastname = CONFIG["FIRST_LASTNAME"]
@@ -244,7 +248,7 @@ if __name__ == "__main__":
 
         except Exception, error_msg:
             ERRORS += 1
-            print "Fail. Error when sending email to {0}".format(email)
+            print u"Fail. Error when sending email to {0}".format(email)
             print "      {0}".format(error_msg)
     
     print "Done. {0} errors, {1} skipped emails when trying to send {2} " \
