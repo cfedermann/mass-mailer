@@ -3,9 +3,9 @@
 Author: Christian Federmann <cfedermann@dfki.de>
 Version: 2012-09-04
 
-Usage: $ mass_mailer.py [--dry-run] <config.ini> <template.html> <emails.csv>
+Usage: $ mass_mailer.py [--dry-run] <config.ini> <mail.html|txt> <emails.csv>
 
-Sends an individualised version of template.html to all recipient email
+Sends an individualised version of mail.html|txt to all recipient email
 addresses contained in emails.csv;  configuration details such as mail server
 or header fields are read from config.ini.
 
@@ -21,11 +21,13 @@ There also are some optional settings:
   BCC=someone-to-get-bcc-copies@example.org
   FIRST_LASTNAME=Sir or Madam
 
-The template.html file may contain HTML markup and should be saved in UTF-8
+The mail.html|txt file may contain HTML markup and should be saved in UTF-8
 encoding;  there is one "special" placeholder {{FIRST_LASTNAME}} which can be
 used to insert the personalised recipient name into the email.  If the name
 cannot be resolved from the email address, the script will use FIRST_LASTNAME
 from config.ini, iff available, defaulting to "Sir or Madam" otherwise.
+
+A template ending with extension ".txt" triggers sending of plain text emails.
 
 Email addresses should be given in comma-separated list form, e.g.:
 
@@ -36,7 +38,7 @@ Email addresses should be given in comma-separated list form, e.g.:
 You can use the optional "--dry-run" flag to run the script in testing mode
 which will do everything except sending out the actual emails.
 
-It is a wise idea to test any new template.html or config.ini with your own
+It is a wise idea to test any new mail.html|txt or config.ini with your own
 email address first.  The author does not any responsibility for emails sent
 out with this tool.  By using the script, you accept this.
 
@@ -60,9 +62,9 @@ def usage():
     Returns usage information for mass_mailer.py.
     """
     return """Usage: $ mass_mailer.py [--dry-run] <config.ini> """ \
-"""<template.html> <emails.csv>
+"""<mail.html|txt> <emails.csv>
 
-Sends an individualised version of template.html to all recipient email
+Sends an individualised version of mail.html|txt to all recipient email
 addresses contained in emails.csv;  configuration details such as mail server
 or header fields are read from config.ini.
 
@@ -118,9 +120,9 @@ def load_config(filename):
 
 def load_template(filename):
     """
-    Loads the email template from the given .html file.
+    Loads the email template from the given .html|txt file.
     
-    The template.html file may contain HTML markup and should be saved in
+    The mail.html|txt file may contain HTML markup and should be saved in
     UTF-8 encoding;  there is one "special" placeholder {{FIRST_LASTNAME}}
     which can be used to insert the personalised recipient name into the
     email.  If the name cannot be resolved from the email address, the script
