@@ -129,12 +129,19 @@ def load_template(filename):
     
     """
     _template = None
-    assert(filename.endswith(".html"))
-    with open(filename) as html_file:
-        _template = html_file.read()
+    _mime_type = None
+    assert(filename.endswith(".html") or filename.endswith(".txt"))
+    
+    if filename.endswith(".html"):
+      _mime_type = "html"
+    elif filename.endswith(".txt"):
+      _mime_type = "plain"
+    
+    with open(filename) as _file:
+        _template = _file.read()
     _template = _template.decode("utf-8")
     
-    return _template
+    return _template, _mime_type
 
 
 def load_emails(filename):
@@ -179,7 +186,7 @@ if __name__ == "__main__":
             DRY_RUN = True
         
         CONFIG = load_config(sys.argv[1+int(DRY_RUN)])
-        TEMPLATE = load_template(sys.argv[2+int(DRY_RUN)])
+        TEMPLATE, MIME_TYPE = load_template(sys.argv[2+int(DRY_RUN)])
         EMAILS = load_emails(sys.argv[3+int(DRY_RUN)])
         print "\nInit. Configuration, email template, and emails loaded."
     
@@ -217,7 +224,7 @@ if __name__ == "__main__":
         
         # Render TEMPLATE and create corresponding MIMEText message from it.
         message = TEMPLATE.replace("{{FIRST_LASTNAME}}", first_lastname)
-        msg = MIMEText(message, "html", "utf-8")
+        msg = MIMEText(message, MIME_TYPE, "utf-8")
         msg["From"] = CONFIG["FROM"]
         msg["Reply-To"] = CONFIG["REPLY-TO"]
         msg["To"] = email
