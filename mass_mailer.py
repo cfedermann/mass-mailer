@@ -191,7 +191,11 @@ if __name__ == "__main__":
         TEMPLATE, MIME_TYPE = load_template(sys.argv[2+int(DRY_RUN)])
         EMAILS = load_emails(sys.argv[3+int(DRY_RUN)])
         print "\nInit. Configuration, email template, and emails loaded."
-    
+
+    # IndexError
+    # AssertionError
+    # UnicodeDecodeError (?)
+    # open() raises which exceptions (?)
     except:
         print "\nFail. An error occured:\n"
         print format_exc()
