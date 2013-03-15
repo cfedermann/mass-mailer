@@ -5,7 +5,7 @@ Python-based mass mailer script
 
 __Author:__ Christian Federmann <cfedermann@dfki.de>
 
-__Version:__ 2012-09-25
+__Version:__ 2013-03-15
 
     Usage: $ mass_mailer.py [--dry-run] <config.ini> <mail.html|txt> <emails.csv>
 
