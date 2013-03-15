@@ -3,7 +3,7 @@
 Author: Christian Federmann <cfedermann@dfki.de>
 Version: 2012-09-04
 
-Usage: $ mass_mailer.py [--dry-run] <config.ini> <mail.html|txt> <emails.csv>
+Usage: $ mass_mailer.py [--dry-run] <config.ini> <mail  |txt> <emails.csv>
 
 Sends an individualised version of mail.html|txt to all recipient email
 addresses contained in emails.csv;  configuration details such as mail server
@@ -135,9 +135,9 @@ def load_template(filename):
     assert(filename.endswith(".html") or filename.endswith(".txt"))
     
     if filename.endswith(".html"):
-      _mime_type = "html"
+        _mime_type = "html"
     elif filename.endswith(".txt"):
-      _mime_type = "plain"
+        _mime_type = "plain"
     
     with open(filename) as _file:
         _template = _file.read()
@@ -252,6 +252,7 @@ if __name__ == "__main__":
                 
                 print "Data. {0}\n--\n".format(b64decode(msg.get_payload()))
 
+        # pylint: disable-msg=W0703
         except Exception, error_msg:
             ERRORS += 1
             print u"Fail. Error when sending email to {0}".format(email)
