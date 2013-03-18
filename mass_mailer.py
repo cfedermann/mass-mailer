@@ -1,6 +1,6 @@
 mate# -*- coding: utf-8 -*-
 """
-Author: Christian Federmann <cfedermann@dfki.de>
+Author: Christian Federmann <cfedermann@gmail.com>
 Version: 2013-03-15
 
 Usage: $ mass_mailer.py [--dry-run] <config.ini> <mail  |txt> <emails.csv>

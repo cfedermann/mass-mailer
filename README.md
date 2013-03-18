@@ -3,7 +3,7 @@ mass-mailer
 
 Python-based mass mailer script
 
-__Author:__ Christian Federmann <cfedermann@dfki.de>
+__Author:__ Christian Federmann <cfedermann@gmail.com>
 
 __Version:__ 2013-03-15
 
