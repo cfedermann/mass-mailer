@@ -1,0 +1,11 @@
+name: "PythonCodeValidator"
+
+on: [push, pull_request]
+
+jobs:
+  formatting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Python Code Validator
+        uses: cfedermann/python-code-validator@master
