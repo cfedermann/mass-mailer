@@ -1,4 +1,4 @@
-mate# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 Author: Christian Federmann <cfedermann@gmail.com>
 Version: 2013-03-15
