@@ -34,3 +34,5 @@ pip-log.txt
 Icon?
 ehthumbs.db
 Thumbs.db
+
+.mypy_cache
